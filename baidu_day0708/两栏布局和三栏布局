@@ -1,0 +1,91 @@
+两栏布局：
+左侧自适应，右侧固定宽度：来自 <http://jo2.org/css-auto-adapt-width/> 
+①
+<div id="wrap">
+  <div id="sidebar" style="height:240px;">固定宽度区</div>
+  <div id="content" style="height:340px;">自适应区</div>
+</div>
+<div id="footer">后面的一个DIV，以确保前面的定位不会导致后面的变形</div>
+
+CSS:
+#wrap {
+    overflow: hidden; *zoom: 1;
+  }
+  #content ,#sidebar {
+    background-color: #eee; 
+  }
+  #sidebar {
+    float: right; width: 300px;
+  }
+  #content {
+    margin-right: 310px;
+  }
+  #footer {background-color: #f00;color:#fff; margin-top: 1em}
+
+②
+<div id="wrap">
+  <div id="content" style="height:340px;">自适应区，在前面</div>
+  <div id="sidebar" style="height:240px;">固定宽度区</div>
+</div>
+
+CSS:
+#wrap {
+    *zoom: 1; position: relative;
+  }
+  #sidebar {
+    width: 300px; position: absolute; right: 0; top: 0;
+  }
+  #content {
+    margin-right: 310px;
+  }
+
+③
+<div id="wrap">
+  <div id="content" style="height:140px;">
+    <div id="contentb">
+      content自适应区，在前面
+    </div>
+  </div>
+  <div id="sidebar" style="height:240px;">sidebar固定宽度区</div>
+</div>
+
+CSS:
+#sidebar {
+    width: 300px; float: right;
+  }
+  #content {
+    margin-left: -310px; float: left; width: 100%;
+  }
+  #contentb {
+    margin-left: 310px;
+  }
+  
+三栏布局： 
+①三列布局自适应，将上述两列布局中的比例更改为33.33%即可，那么以此类推，四列布局自适应也可以用一样的方法，调整比例分配，从而实现自己想要的布局方式。
+<style type="text/css">
+    body{margin:0;padding:0;}
+    .main{width:800px;margin:0 auto;}
+    .left{width:33.33%;height:500px;background:blue;float:left;}
+    .middle{width:33.33%;height:500px;background:black;float:left;}
+    .right{width:33.33%;background:red;height:500px;float:right;}
+</style>
+<div class="main">
+    <div class="left"> This is left !</div>
+    <div class="middle"> This is middle !</div>
+    <div class="right"> This is right !</div>
+</div>
+②另外一种情况是，左右两块的宽度都是固定的分别为200px，300px，而中间是自适应的。这种情况下就不能通过float来实现了，此时我们需要对左右两块进行绝对定位，然后设置中间块的margin，则可以实现要求。如果你想让中间和左右两块不要紧密贴合，则可以在设置margin（上，右，下，左）时，把像素适当的提高。实现方式如下： 
+注意left:0;top:0；right:0;top:0; 这些设置是必须的，不加就会出问题，亲测
+<style type="text/css">
+    body{margin:0;padding:0;}
+    .main{width:800px;margin:0 auto;}
+    .left{width:200px;height:500px;background:blue;position:absolute;left:0;top:0;}
+    .middle{height:500px;background:black;margin:0 300px 0 200px;}
+    .right{width:300px;background:red;height:500px;position:absolute;right:0;top:0;}
+</style>
+
+<div class="main">
+    <div class="left"> This is left !</div>
+    <div class="middle"> This is middle !</div>
+    <div class="right"> This is right !</div>
+</div>
