@@ -7,6 +7,9 @@ html {
 	height: 99.95%;
 	display: table;
 }
+img:hover {	
+	cursor: pointer;
+}
 body {
 	width: 100%;
 	display: table-cell;
@@ -55,6 +58,7 @@ body {
 }
 /*导航列*/
 .nav{
+	
 	width: 250px;
 	height: 100%;
 	float: left;
@@ -159,11 +163,17 @@ hr{
 
 /*白色部分*/
 .content{
-	margin-left: 350px;
+	width: calc(100%-350px);
 }
 /*头部*/
 header{
-	height:80px; 
+	/*position: fixed;
+	left: 350px;
+    width:100%;*/
+    height: 80px;
+    /*background: white;*/
+    border-bottom: 1px solid #e9e6ec;
+   /* z-index: 10;*/
 }
 section{
 	font-size: 30px;
@@ -177,6 +187,8 @@ section{
 	right: 25px;
 	width: 225px;
 	height: 50px;
+	z-index: 10;
+	background-color: white;
 }
 #person img{
 	float: left;
@@ -211,11 +223,10 @@ select {
 }
 /*左边*/
 .left{
-	-webkit-flex:none;
-	flex:none;
 	width: 400px;
 	border: solid 1px #e6e9ec;
 	float: left;
+	
 }
 .search{
     width: 400px;
@@ -294,10 +305,8 @@ select {
 
 /*右边*/
 .right{
-	-webkit-flex:1;
-	flex:1;
-	margin-left: 400px;
-	border-left: 0;
+	margin-left: 750px;
+	width: calc(100% - 750px);
 }
 .rightfirst{
 	height: 70px;
@@ -381,7 +390,7 @@ select {
 	height:  10px;
 }
 #h1{
-	width: 490px;
+	width: 350px;
     background-color: #e6e9ec;
     height: 1px;
     border: 0;
@@ -391,11 +400,11 @@ select {
 #h p{
 	position: absolute;
 	top: 470px;
-	right: 570px;
+	right: 340px;
 	color: #a1adbc;
 }
 #h2{
-	width: 540px;
+	width:320px;
     background-color: #e6e9ec;
     height: 1px;
     border: 0;
@@ -405,35 +414,35 @@ select {
 }
 #picture img:first-child{
 	position: absolute;
-	top: 290px;
-	right: 890px;
+	top: 330px;
+	right: 510px;
 }
 #picture img:nth-child(2){
 	position: absolute;
-	top: 290px;
-	right: 720px;
+	top: 330px;
+	right: 335px;
 }
 #h3{
-	width: 483px;
+	width: 340px;
     background-color: #4fadf4;
     height: 1px;
     border: 0;
     position: absolute;
-    top: 400px;
+    top: 430px;
 }
 #h5 p{
 	position: absolute;
-	top: 420px;
-	right: 525px;
+	top: 450px;
+	right: 290px;
 	color: #4fadf4;
 }
 #h4{
-	width: 505px;
+	width: 270px;
     background-color: #4fadf4;
     height: 1px;
     border: 0;
     position: absolute;
-    top: 400px;
+    top: 430px;
     right: 0;
 }
 
@@ -447,18 +456,18 @@ select {
 #woman1 img{
 	float: left;
 	position: absolute;
-	top: 130px;
+	top: 160px;
 	left: 30px;
 }
 #woman1 p:nth-child(2){
 	position: absolute;
-	top: 133px;
+	top: 163px;
 	left: 100px;
 	font-weight: bold;
 }
 #woman1 p:nth-child(3){
 	position: absolute;
-	top: 160px;
+	top: 190px;
 	left: 100px;
 	color: #a1adbc;
 }
@@ -467,9 +476,9 @@ select {
 	margin-left: 20px;
 }
 #last input{
-	width: 1000px;
-	height: 55px;
-	margin-top: 40px;
+	width: 600px;
+	height: 50px;
+	margin-top: 70px;
 	margin-left: 30px;
 	color: #a1adbc;
 	font-size: 16px;
