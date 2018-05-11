@@ -1,0 +1,95 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>我的简历</title>
+  <style type="text/css">
+  body {
+    color:rgb(0,0,0);
+    font-family:"微软雅黑";
+  }
+  h2{
+    margin:0 auto;
+    text-align:center;
+    font-style:italic;
+    background:#72b8d5;
+    width:423px;
+    border-style: solid dotted dashed double;
+  }
+  h2 input{
+    margin-left: 50px;
+  }
+  table{
+    background-color: #a3d5d3;
+    border:solid black 1px;
+    margin:0 auto;
+  }
+  table tr td{
+    border:solid black 1px;
+  }
+  td{
+    width:80px;
+    height:40px;
+    text-align:center;
+    font-size:16px;
+    text-decoration:blink;
+    font-weight:blod;
+  }
+  #inp{
+    margin-left: 180px;
+    margin-top: -20px;
+  }
+  a:link {color:#FF0000;}    /* 未被访问的链接 */
+  a:visited {color:#00FF00;} /* 已被访问的链接 */
+  a:hover {color:#FF00FF;}   /* 鼠标指针移动到链接上 */
+  a:active {color:#0000FF;}  /* 正在被点击的链接 */
+  #hoby{
+    height:100px;
+  }
+  #hoby ul li{
+    text-align:left;
+    list-style-type:Lower-roman;
+  }
+  textarea{
+    background:#a3d5d3;
+    border:0;
+    text-indent:24px;
+    line-height:30px;
+    text-shadow:5px 5px 10px black;
+  }
+</style>
+</head>
+<body>
+  <script>
+    function myFunction(){
+      alert("你好，欢迎查看我的简历！");
+    }
+    function css(){
+      var obj=document.getElementById('cs');
+      if (obj.innerHTML=="css") {
+        obj.innerHTML="CSS 概述:CSS 指层叠样式表 (Cascading Style Sheets),样式定义如何显示 HTML 元素,样式通常存储在样式表中,把样式添加到 HTML 4.0 中，是为了解决内容与表现分离的问题,外部样式表可以极大提高工作效率"}
+        else {
+          obj.innerHTML="css";
+        }
+      }
+    </script>
+    <h2>简历<input type="button" onclick="myFunction()" value="点击一下我" /></h2>
+    <table cellspacing="0">
+      <tr><td>姓名</td><td></td><td>性别</td><td></td></tr>
+      <tr><td>年龄</td><td></td><td>名族</td><td></td></tr>
+      <tr><td>毕业学校</td><td></td><td>电子邮箱</td><td><a href="#" target="_blank">xiejun@foxmail.com</td></tr>
+        <tr id="hoby"><td>技术特长</td><td colspan=3>
+          <ul>
+            <li>java
+              <script>
+                document.write("<p>插入一条JavaScript语句</p>");
+              </script></li>
+              <li>pyhton</li>
+              <li>html5</li>
+              <li id="cs">css</li>
+              <input id="inp" type="button" onclick="css()" value="查看详情或返回" />
+            </ul>
+          </td></tr>
+          <tr><td>项目经验</td><td colspan=3><textarea cols=50 rows=10>API（Application Programming Interface,应用程序编程接口）是一些预先定义的函数，目的是提供应用程序与开发人员基于某软件或硬件得以访问一组例程的能力，而又无需访问源码，或理解内部工作机制的细节。</textarea></td></tr>
+        </table>
+      </body>
+      </html>
