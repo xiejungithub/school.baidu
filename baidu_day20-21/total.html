@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>day20_test1</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+	<style>
+        select {
+            display: none;
+        }
+        .palette {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .palette li {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+        #smile{
+		background-image: url(erik.jpg);
+		background-repeat: no-repeat;
+		width: 480px;
+		height: 480px;			
+	}
+    </style>
+</head>
+<body onKeyDown = "aa()">
+	<h1>one</h1>
+	<input id="name" type="text">    
+	<button id="submit-btn" onclick="Myconsole()" accessKey="enter">Submit</button>
+	<h1>two</h1>
+	<label>
+        <input id="school" name="status" type="radio" onclick="Myschool()">
+        School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio" onclick="Mycompany()">
+        Company
+    </label>
+
+    <select id="school-select">        
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">        
+        <option>百度</option>
+        <option>爱奇艺</option>        
+    </select>
+    <h1>three</h1>
+	<ul class="palette">
+        <li style="background-color:crimson"></li>
+        <li style="background-color:bisque"></li>
+        <li style="background-color:blueviolet"></li>
+        <li style="background-color:coral"></li>
+        <li style="background-color:chartreuse"></li>
+        <li style="background-color:darkolivegreen"></li>
+        <li style="background-color:cyan"></li>
+        <li style="background-color:#194738"></li>        
+    </ul>
+    <p class="color-picker"></p>
+	<h1>four</h1>
+	<div id="fade-obj" style="width:300px;height:300px;background:#000">
+	</div>
+	<button id="fade-btn" onclick="fade()">淡出</button>
+	<h1>five</h1>
+	<div id="smile" style="background-position: 0px 0px;"></div>
+	
+
+
+	<script>
+		//one
+		function Myconsole(){
+			console.log(document.getElementById("name").value);	
+		}
+		function aa(){	
+			if (event.keyCode==13) { //enter键
+	            Myconsole();
+	        } 
+	        else if (event.keyCode==27) { //Esc键
+	            document.getElementById("name").value=null;
+	        }
+		}
+		//two
+		var obj1 = document.getElementById("school-select");
+        var obj2 = document.getElementById("company-select");
+        function Myschool(){
+            obj1.style.display= "block";
+            obj2.style.display= "none";
+        }
+        function Mycompany(){
+            obj1.style.display= "none";
+            obj2.style.display= "block";
+        }
+        //three
+        var list = document.querySelectorAll("li");
+        for (var i = i = 0, len = list.length; i < len; i++) {
+            list[i].onclick = function(e) {
+                var t = e.target;//target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。
+                var c = t.style.backgroundColor;
+                var p = document.getElementsByClassName("color-picker")[0];
+                p.innerHTML = c;
+                p.style.color = c;
+
+            }
+        }
+        //four
+        function fade(){
+// 			var obj = document.getElementById("fade-obj");
+//    			obj.style.cssText = " background:rgba(0,152,50,0.7);"
+			var stamp = document.getElementById("fade-btn");//设置盖章按钮为不可用  
+			stamp.disabled=true;  //按钮变为不可点击
+			if (stamp.innerHTML=="淡出") {
+				var t1=setTimeout("document.getElementById('fade-obj').style.opacity='0.7'",1000);
+				var t2=setTimeout("document.getElementById('fade-obj').style.opacity='0.5'",2000);
+				var t3=setTimeout("document.getElementById('fade-obj').style.opacity='0.2'",3000);
+				var t4=setTimeout("document.getElementById('fade-obj').style.opacity=0",4000);
+				//stamp.disabled=false;//按钮变为可以点击
+				var t5=setTimeout("document.getElementById('fade-btn').disabled=false",5000);
+				var t6=setTimeout("document.getElementById('fade-btn').innerHTML='淡入'",5000);
+			}
+			if (stamp.innerHTML=="淡入") {
+				var t1=setTimeout("document.getElementById('fade-obj').style.opacity='0.2'",1000);
+				var t2=setTimeout("document.getElementById('fade-obj').style.opacity='0.5'",2000);
+				var t3=setTimeout("document.getElementById('fade-obj').style.opacity='0.7'",3000);
+				var t4=setTimeout("document.getElementById('fade-obj').style.opacity=1",4000);
+				var t5=setTimeout("document.getElementById('fade-btn').disabled=false",5000);
+				var t6=setTimeout("document.getElementById('fade-btn').innerHTML='淡出'",5000);
+			}
+		}
+		//five
+		window.onload = function(){
+				var container = document.querySelector("#smile"),
+	            y = parseFloat(container.style.backgroundPositionY),
+	            flag = true,
+	            start = true,
+	            h = 17*480;
+	        setInterval(function(){
+	            if((y === -h + 480 || y === 0) && !start){
+	                flag = !flag;
+	            };
+	            start = false;
+	            //变正脸
+	            if(flag){
+	                y -= 480;
+	            }else{//变侧脸
+	                y += 480;
+	            }
+	            container.style.backgroundPositionY = y + 'px';
+	        },100);
+			}
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>smile</title>
+	<style type="text/css">
+	#smile{
+		background-image: url(erik.jpg);
+		background-repeat: no-repeat;
+		width: 480px;
+		height: 480px;			
+	}
+</style>
+</head>
+<body>
+		<div id="smile" style="background-position: 0px 0px;"></div>
+		<script type="text/javascript">
+			window.onload = function(){
+				var container = document.querySelector("#smile"),
+	            y = parseFloat(container.style.backgroundPositionY),
+	            flag = true,
+	            start = true,
+	            h = 17*480;
+	        setInterval(function(){
+	            if((y === -h + 480 || y === 0) && !start){
+	                flag = !flag;
+	            };
+	            start = false;
+	            //变正脸
+	            if(flag){
+	                y -= 480;
+	            }else{//变侧脸
+	                y += 480;
+	            }
+	            container.style.backgroundPositionY = y + 'px';
+	        },100);
+			}
+		</script>
+</body>
+</html>
