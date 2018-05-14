@@ -109,22 +109,17 @@
         }
         //four
         function fade(){
-// 			var obj = document.getElementById("fade-obj");
-//    			obj.style.cssText = " background:rgba(0,152,50,0.7);"
 			var stamp = document.getElementById("fade-btn");//设置盖章按钮为不可用  
-			
 			var fade = document.getElementById('fade-obj');
 			var time;
-			
-			  //按钮变为不可点击
 			if (stamp.innerHTML=="淡出") {
-				stamp.disabled=true;
+				stamp.disabled=true;//按钮变为不可点击
 				fade.style.transition = 'opacity 2s';
-                    fade.style.opacity = '0';
-                    time = setInterval(function(){
-                        stamp.innerHTML = '淡入';
-                        stamp.disabled = false;
-                    },3000);
+                fade.style.opacity = '0';
+                time = setInterval(function(){
+                    stamp.innerHTML = '淡入';
+                    stamp.disabled = false;
+                },3000);
 				// var t1=setTimeout("document.getElementById('fade-obj').style.opacity='0.7'",1000);
 				// var t2=setTimeout("document.getElementById('fade-obj').style.opacity='0.5'",2000);
 				// var t3=setTimeout("document.getElementById('fade-obj').style.opacity='0.2'",3000);
@@ -136,11 +131,11 @@
 			else if (stamp.innerHTML=="淡入") {
 				stamp.disabled=true;
 				fade.style.transition = 'opacity 2s';
-                    fade.style.opacity = '1';
-                    time = setInterval(function(){
-                        stamp.innerHTML = '淡出';
-                        stamp.disabled = false;
-                    },3000);
+                fade.style.opacity = '1';
+                time = setInterval(function(){
+                    stamp.innerHTML = '淡出';
+                    stamp.disabled = false;
+                },3000);
 				// var t1=setTimeout("document.getElementById('fade-obj').style.opacity='0.2'",1000);
 				// var t2=setTimeout("document.getElementById('fade-obj').style.opacity='0.5'",2000);
 				// var t3=setTimeout("document.getElementById('fade-obj').style.opacity='0.7'",3000);
