@@ -114,7 +114,7 @@
 			var time;
 			if (stamp.innerHTML=="淡出") {
 				stamp.disabled=true;//按钮变为不可点击
-				fade.style.transition = 'opacity 2s';
+				fade.style.transition = 'opacity 3s';
                 fade.style.opacity = '0';
                 time = setInterval(function(){
                     stamp.innerHTML = '淡入';
@@ -130,7 +130,7 @@
 			}
 			else if (stamp.innerHTML=="淡入") {
 				stamp.disabled=true;
-				fade.style.transition = 'opacity 2s';
+				fade.style.transition = 'opacity 3s';
                 fade.style.opacity = '1';
                 time = setInterval(function(){
                     stamp.innerHTML = '淡出';
