@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>day20_test1</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+</head>
+<body onKeyDown = "aa()">
+	<div id="fade-obj" style="width:300px;height:300px;background:#000">
+		
+	</div>
+	<button id="fade-btn" onclick="fade()">淡出</button>
+	<script>
+		function fade(){
+// 			var obj = document.getElementById("fade-obj");
+//    			obj.style.cssText = " background:rgba(0,152,50,0.7);"
+			var stamp = document.getElementById("fade-btn");//设置盖章按钮为不可用  
+			stamp.disabled=true;  //按钮变为不可点击
+			if (stamp.innerHTML=="淡出") {
+				var t1=setTimeout("document.getElementById('fade-obj').style.opacity='0.7'",1000);
+				var t2=setTimeout("document.getElementById('fade-obj').style.opacity='0.5'",2000);
+				var t3=setTimeout("document.getElementById('fade-obj').style.opacity='0.2'",3000);
+				var t4=setTimeout("document.getElementById('fade-obj').style.opacity=0",4000);
+				//stamp.disabled=false;//按钮变为可以点击
+				var t5=setTimeout("document.getElementById('fade-btn').disabled=false",5000);
+				var t6=setTimeout("document.getElementById('fade-btn').innerHTML='淡入'",5000);
+			}
+			if (stamp.innerHTML=="淡入") {
+				var t1=setTimeout("document.getElementById('fade-obj').style.opacity='0.2'",1000);
+				var t2=setTimeout("document.getElementById('fade-obj').style.opacity='0.5'",2000);
+				var t3=setTimeout("document.getElementById('fade-obj').style.opacity='0.7'",3000);
+				var t4=setTimeout("document.getElementById('fade-obj').style.opacity=1",4000);
+				var t5=setTimeout("document.getElementById('fade-btn').disabled=false",5000);
+				var t6=setTimeout("document.getElementById('fade-btn').innerHTML='淡出'",5000);
+			}
+		}
+	</script>
+</body>
+</html>

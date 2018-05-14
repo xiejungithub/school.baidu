@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>day20_test2</title>
+    <style>
+        select {
+            display: none;
+        }
+    </style>
+</head>
+<body>            
+    <label>
+        <input id="school" name="status" type="radio" onclick="Myschool()">
+        School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio" onclick="Mycompany()">
+        Company
+    </label>
+
+    <select id="school-select">        
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">        
+        <option>百度</option>
+        <option>爱奇艺</option>        
+    </select>
+    <script>
+        var obj1 = document.getElementById("school-select");
+        var obj2 = document.getElementById("company-select");
+        function Myschool(){
+            obj1.style.display= "block";
+            obj2.style.display= "none";
+        }
+        function Mycompany(){
+            obj1.style.display= "none";
+            obj2.style.display= "block";
+        }
+    </script>
+</body>
+</html>
