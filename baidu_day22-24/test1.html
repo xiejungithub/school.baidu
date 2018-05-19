@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test1</title>
+</head>
+<body>
+	<div>
+	    <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a" type="text">
+	    <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text">
+	</div>
+	<div>
+	    <button onclick="button1()">判断当前选中的输入框输入内容是否为数字</button>
+	    <button onclick="button2()">把 A 四舍五入为 B 个小数位数的数字</button>
+	    <button onclick="button3()">当前选中数字的绝对值</button>
+	    <button onclick="button4()">对当前选中的数字进行上舍入</button>
+	    <button onclick="button5()">对当前选中的数字进行下舍入</button>
+	    <button onclick="button6()">把当前选中的数字四舍五入为最接近的整数</button>
+	    <button onclick="button7()">返回 A 和 B 中的最高值</button>
+	    <button onclick="button8()">返回 A 和 B 中的最低值</button>        
+	</div>
+	<p id="result"></p>
+	<script type="text/javascript">
+		function button1(){
+			var numa=document.getElementById('num-a').value;
+			var numb=document.getElementById('num-b').value;
+			var gander=document.getElementsByName('math-obj');
+			if (gander[0].checked&&/^(?:0|\-?(?:0\.\d*[1-9]|[1-9]\d*(?:\.\d*[1-9])?))$/.test(numa)) {
+				var obj=document.getElementById("result");
+				obj.innerHTML="输入框的内容是数字";
+			}else if(gander[0].checked&&(!/^(?:0|\-?(?:0\.\d*[1-9]|[1-9]\d*(?:\.\d*[1-9])?))$/.test(numa))){
+				console.log("输入框的内容不是数字");
+			}
+			if (gander[1].checked&&/^(?:0|\-?(?:0\.\d*[1-9]|[1-9]\d*(?:\.\d*[1-9])?))$/.test(numb)) {
+				var obj=document.getElementById("result");
+				obj.innerHTML="输入框的内容是数字";
+			}else if(gander[1].checked&&(!/^(?:0|\-?(?:0\.\d*[1-9]|[1-9]\d*(?:\.\d*[1-9])?))$/.test(numb))){
+				console.log("输入框的内容不是数字");
+			}	
+		}
+		function button2(){
+			var numa=document.getElementById("num-a").value;
+			var numb=document.getElementById('num-b').value;
+			if (/^(?:0|\-?(?:0\.\d*[1-9]|[1-9]\d*(?:\.\d*[1-9])?))$/.test(numa)&&/^(?:0|\-?(?:0\.\d*[1-9]|[1-9]\d*(?:\.\d*[1-9])?))$/.test(numb)){
+				var obj=document.getElementById("result");			
+				var num = new Number(numa);//不可少
+				obj.innerHTML=num.toFixed(numb);
+			}else{
+				console.log("输入框中请输入数字");
+			}
+		}
+		function button3(){
+			var numa=document.getElementById('num-a').value;
+			var numb=document.getElementById('num-b').value;
+			var gander=document.getElementsByName('math-obj');
+			var obj=document.getElementById("result");
+			aa();
+			if(gander[0].checked){
+				obj.innerHTML=Math.abs(numa);
+			}else if(gander[1].checked){
+				obj.innerHTML=Math.abs(numb);
+			}
+		}
+		var aa=function(){
+			var numa=document.getElementById('num-a').value;
+			var numb=document.getElementById('num-b').value;
+			var gander=document.getElementsByName('math-obj');
+			var obj=document.getElementById("result");
+			if(gander[0].checked&&(!/^(?:0|\-?(?:0\.\d*[1-9]|[1-9]\d*(?:\.\d*[1-9])?))$/.test(numa))){
+					console.log("输入框1的内容不是数字");
+				}
+			if(gander[1].checked&&(!/^(?:0|\-?(?:0\.\d*[1-9]|[1-9]\d*(?:\.\d*[1-9])?))$/.test(numb))){
+					console.log("输入框2的内容不是数字");
+			}	
+		}
+
+		function button4(){
+			var numa=document.getElementById('num-a').value;
+			var numb=document.getElementById('num-b').value;
+			var gander=document.getElementsByName('math-obj');
+			var obj=document.getElementById("result");
+			aa();
+			if(gander[0].checked){
+				obj.innerHTML=Math.ceil(numa);
+			}else if(gander[1].checked){
+				obj.innerHTML=Math.ceil(numb);
+			}
+		}
+		function button5(){
+			var numa=document.getElementById('num-a').value;
+			var numb=document.getElementById('num-b').value;
+			var gander=document.getElementsByName('math-obj');
+			var obj=document.getElementById("result");
+			aa();
+			if(gander[0].checked){
+				obj.innerHTML=Math.floor(numa);
+			}else if(gander[1].checked){
+				obj.innerHTML=Math.floor(numb);
+			}
+		}
+		function button6(){
+			var numa=document.getElementById('num-a').value;
+			var numb=document.getElementById('num-b').value;
+			var gander=document.getElementsByName('math-obj');
+			var obj=document.getElementById("result");
+			aa();
+			if(gander[0].checked){
+				obj.innerHTML=Math.round(numa);
+			}else if(gander[1].checked){
+				obj.innerHTML=Math.round(numb);
+			}
+		}
+		function button7(){
+			var numa=document.getElementById('num-a').value;
+			var numb=document.getElementById('num-b').value;
+			var gander=document.getElementsByName('math-obj');
+			var obj=document.getElementById("result");
+			aa();
+			obj.innerHTML=Math.max(numa,numb);
+		}
+		function button8(){
+			var numa=document.getElementById('num-a').value;
+			var numb=document.getElementById('num-b').value;
+			var gander=document.getElementsByName('math-obj');
+			var obj=document.getElementById("result");
+			aa();
+			obj.innerHTML=Math.min(numa,numb);
+		}
+	</script>
+</body>
+</html>
