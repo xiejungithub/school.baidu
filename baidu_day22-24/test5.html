@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test5</title>
+</head>
+<body>
+	<input id="queue-input" type="text">
+	<p id="queue-cont">队列内容：apple-&gt;pear</p>    
+	<button id="in-btn" onclick="inbtn()">入队</button>
+	<button id="out-btn" onclick="outbtn()">出队</button>
+	<button id="font-btn" onclick="fontbtn()">打印队头元素内容</button>
+	<button id="empty-btn" onclick="emptybtn()">判断队列是否为空</button>
+
+<script>
+	var queue = ["apple", "pear"];
+	function inbtn(){
+		var content=document.getElementById('queue-input').value;
+		var obj=document.getElementById('queue-cont');
+		queue.push(content);
+		var result=queue.join("-&gt;");
+		obj.innerHTML="队列内容："+result;
+	}
+	function outbtn(){
+		var obj=document.getElementById('queue-cont');
+		queue.shift();
+		var result=queue.join("-&gt;");
+		obj.innerHTML="队列内容："+result;
+	}
+	function fontbtn(){
+		var obj=document.getElementById('queue-cont');	
+		obj.innerHTML="队头元素内容:"+queue.pop();
+	}
+	function emptybtn(){
+		var obj=document.getElementById('queue-cont');	
+		var x=queue.unshift("")-1;
+		if(x==0){
+			obj.innerHTML="队列为空";
+		}
+		else{
+			obj.innerHTML="队列不为空";
+		}
+	}
+</script>
+</body>
+</html>
