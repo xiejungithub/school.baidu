@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>test3</title>
+</head>
+<body>
+	<select id="year-select">
+	    <option value="2000">2000</option>
+	    <option value="2001">2001</option>
+	    <option value="2002">2002</option>
+	    ……
+	    <option value="2018">2018</option>
+	</select>
+
+	<select id="month-select">
+	    <option value="1">1</option>
+	    <option value="5">5</option>
+	    <option value="4">4</option>
+	    ……
+	    <option value="12">12</option>
+	</select>
+
+	<select id="day-select">
+	    <option value="1">1</option>
+	    <option value="2">2</option>
+	    <option value="6">6</option>
+
+	    <option value="10">10</option>
+	    <option value="13">13</option>
+	   <!--  <option value="2">2</option>
+	    <option value="2">2</option> -->
+	    ……
+	    <option value="31">31</option>
+	</select>
+
+	<select id="hour-select">
+	    <option value="0">00</option>
+	    <option value="1">01</option>        
+	    ……
+	    <option value="23">23</option>
+	</select>
+
+	<select id="minite-select">
+	    <option value="0">0</option>
+	    <option value="1">1</option>
+	    ……
+	    <option>59</option>
+	</select>
+
+	<select id="second-select">
+	    <option value="0">0</option>
+	    <option value="1">1</option>
+	    ……
+	    <option>59</option>
+	</select>
+
+<p id="result-wrapper">现在距离 2001年1月1日星期X HH:MM:SS 还有 X 天 X 小时 X 分 X 秒</p>
+
+
+<script type="text/javascript">
+	var result=document.getElementById('result-wrapper');
+	function dd(y,mon,d,w,h,m,s){
+		y=checkTime(y);
+		mon=checkTime(mon);
+		d=checkTime(d);
+		w=checkweekday(w);
+		h=checkTime(h);
+		m=checkTime(m);
+		s=checkTime(s);
+
+		var pass = new Date();
+		pass.setFullYear(y,mon-1,d);
+		pass.setHours(h);
+		pass.setMinutes(m);
+		pass.setSeconds(s);
+		var now = new Date(); 
+		var d_value = (now >= pass) ?( now-pass):(pass - now);
+		var day = Math.floor(d_value/1000/60/60/24);
+		var hour = Math.floor(d_value/1000/60/60%24);
+		var minute = Math.floor(d_value/1000/60%60);
+		var second = Math.floor(d_value/1000%60);
+
+		if(now < pass) {
+			result.innerText="现在距离"+""+y+"年"+mon+"月"+d+"日"+"星期"+w+""+h+":"+m+":"+s
+				+"还有"+day+"天"+hour+"小时"+minute+"分"+second+"秒";
+		} else {
+		 	result.innerText="现在距离"+""+y+"年"+mon+"月"+d+"日"+"星期"+w+""+h+":"+m+":"+s 
+		 		+"已经过去"+day+"天"+hour+"小时"+minute+"分"+second+"秒";	
+		 }
+	}
+	function checkTime(i){
+		if (i<10){
+			i="0"+i;
+		}
+		return i;
+	}
+	function checkweekday(i){
+		var weekday=new Array(7);
+		weekday[0]="日"
+		weekday[1]="一"
+		weekday[2]="二"
+		weekday[3]="三"
+		weekday[4]="四"
+		weekday[5]="五"
+		weekday[6]="六"
+		return weekday[i];
+	}
+	document.getElementById('year-select').onclick=function(){
+		var y=document.getElementById('year-select').value;
+		var mon=document.getElementById('month-select').value;
+		var d=document.getElementById('day-select').value;
+		var h=document.getElementById('hour-select').value;
+		var m=document.getElementById('minite-select').value;
+		var s=document.getElementById('second-select').value;
+		var ww = new Date();
+		ww.setFullYear(y,mon,d);
+		var w=ww.getDay();	
+		dd(y,mon,d,w,h,m,s);
+	}
+	document.getElementById('month-select').onclick=function(){
+		var y=document.getElementById('year-select').value;
+		var mon=document.getElementById('month-select').value;
+		var d=document.getElementById('day-select').value;
+		var h=document.getElementById('hour-select').value;
+		var m=document.getElementById('minite-select').value;
+		var s=document.getElementById('second-select').value;
+		var ww = new Date();
+		ww.setFullYear(y,mon,d);
+		var w=ww.getDay();	
+		dd(y,mon,d,w,h,m,s);
+	}
+	document.getElementById('day-select').onclick=function(){
+		var y=document.getElementById('year-select').value;
+		var mon=document.getElementById('month-select').value;
+		var d=document.getElementById('day-select').value;
+		var h=document.getElementById('hour-select').value;
+		var m=document.getElementById('minite-select').value;
+		var s=document.getElementById('second-select').value;
+		var ww = new Date();
+		ww.setFullYear(y,mon,d);
+		var w=ww.getDay();	
+		dd(y,mon,d,w,h,m,s);
+	}
+	document.getElementById('hour-select').onclick=function(){
+		var y=document.getElementById('year-select').value;
+		var mon=document.getElementById('month-select').value;
+		var d=document.getElementById('day-select').value;
+		var h=document.getElementById('hour-select').value;
+		var m=document.getElementById('minite-select').value;
+		var s=document.getElementById('second-select').value;
+		var ww = new Date();
+		ww.setFullYear(y,mon,d);
+		var w=ww.getDay();	
+		dd(y,mon,d,w,h,m,s);
+	}
+	document.getElementById('minite-select').onclick=function(){
+		var y=document.getElementById('year-select').value;
+		var mon=document.getElementById('month-select').value;
+		var d=document.getElementById('day-select').value;
+		var h=document.getElementById('hour-select').value;
+		var m=document.getElementById('minite-select').value;
+		var s=document.getElementById('second-select').value;
+		var ww = new Date();
+		ww.setFullYear(y,mon,d);
+		var w=ww.getDay();	
+		dd(y,mon,d,w,h,m,s);
+	}
+	document.getElementById('second-select').onclick=function(){
+		var y=document.getElementById('year-select').value;
+		var mon=document.getElementById('month-select').value;
+		var d=document.getElementById('day-select').value;
+		var h=document.getElementById('hour-select').value;
+		var m=document.getElementById('minite-select').value;
+		var s=document.getElementById('second-select').value;
+		var ww = new Date();
+		ww.setFullYear(y,mon,d);
+		var w=ww.getDay();	
+		dd(y,mon,d,w,h,m,s);
+	}
+</script>
+</body>
+</html>
