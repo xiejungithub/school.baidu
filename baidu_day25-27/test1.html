@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>test1</title>
+</head>
+<body>
+	<script type="text/javascript">
+	function Go() {
+    	console.log("Go");
+	}
+
+	function GoSteps(n) {
+		if (/^(\-|\+)?\d+(\.\d+)?$/.test(n)) {
+			if (n>0) {
+				if (/^-?\d+$/.test(n)){//验证是否为整数
+				    while(n--){
+				    	Go();
+				    }
+				}else{
+					var m=parseInt(n);
+					while(m--){
+						Go();
+					}
+				}
+			}
+			else if(n<=0){
+			 	console.log("不动");
+			}
+		}
+		if(/^[^0-9]*$/.test(n)){
+			if(n===true){
+				Go();
+			}if (n==null) {
+				Go();
+			}
+			else{
+				console.log("字符串不动");
+			}
+		}
+	
+	}
+	GoSteps(10); // Go 10次
+	GoSteps(1); // Go 1次
+	GoSteps(); // Go 1次，认为缺少参数时，默认参数为1
+	GoSteps(0);  // 0次
+	GoSteps(-1);  // 0次
+	GoSteps(1.4);  // Go 1次
+	GoSteps(1.6);  // Go 1次
+	GoSteps(-1);  // 0次
+	GoSteps(true);  // Go 1次
+	GoSteps(false);  // 0次
+	GoSteps("Test");  // 0次
+	GoSteps(NaN);  // 0次
+	GoSteps(null);  // 0次//一次Go,一次不动
+	</script>
+</body>
+</html>
